@@ -1,0 +1,3234 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tâm An Phát - TAP TRADING CONSULTING COMPANY LIMITED</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gold: #D4AF37;
+            --light-gold: #F4E4C1;
+            --dark: #1a1a1a;
+            --gray: #666;
+            --light-gray: #f8f8f8;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, #D4AF37 0%, #F4E4C1 100%);
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 50%, #f4e4c1 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            width: 150px;
+            height: 50px;
+            border-radius: 0%;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+        }
+        /* Logo Container */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.logo-container:hover {
+    transform: scale(1.05);
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.logo-main {
+    font-size: 1.7rem;
+    font-weight: 800;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 0.1em;
+}
+
+.logo-sub {
+    font-size: 0.91rem;
+    color: var(--gray);
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .logo-text {
+        display: flex; /* Thay vì display: none */
+    }
+    
+    .logo-main {
+        font-size: 1.5rem; /* Nhỏ hơn một chút trên mobile */
+    }
+    
+    .logo-sub {
+        font-size: 0.75rem;
+    }
+}
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--dark);
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 3px;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu li {
+            position: relative;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: color 0.3s ease;
+            display: block;
+            padding: 0.5rem 0;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-gold);
+        }
+
+        .nav-menu a.active {
+    color: var(--primary-gold);
+    position: relative;
+}
+
+.nav-menu a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--gradient);
+    border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+    .nav-menu a.active::after {
+        display: none;
+    }
+    
+    .nav-menu a.active {
+        background: var(--light-gold);
+    }
+}
+
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 220px;
+            box-shadow: var(--shadow);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 0.5rem;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            padding: 0.75rem 1.25rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-content a:hover {
+            background: var(--light-gold);
+        }
+
+        /* Nested Dropdown */
+        .nested-dropdown {
+            position: relative;
+        }
+
+        .nested-dropdown-content {
+            display: none;
+            position: absolute;
+            left: 100%;
+            top: 0;
+            background: white;
+            min-width: 200px;
+            box-shadow: var(--shadow);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .nested-dropdown:hover .nested-dropdown-content {
+            display: block;
+        }
+
+        /* Mobile Navigation */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: white;
+                width: 100%;
+                text-align: left;
+                transition: 0.3s;
+                box-shadow: var(--shadow);
+                max-height: calc(100vh - 70px);
+                overflow-y: auto;
+                gap: 0;
+                padding: 1rem 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu a {
+                padding: 1rem 1.5rem;
+            }
+
+            .dropdown-content {
+                position: static;
+                display: none;
+                box-shadow: none;
+                background: var(--light-gray);
+                margin-top: 0;
+            }
+
+            .dropdown.active .dropdown-content {
+                display: block;
+            }
+
+            .dropdown > a::after {
+                content: ' ▼';
+                font-size: 0.7rem;
+                margin-left: 0.5rem;
+            }
+
+            .dropdown.active > a::after {
+                content: ' ▲';
+            }
+
+            .nested-dropdown-content {
+                position: static;
+                box-shadow: none;
+                background: #e8e8e8;
+                margin-left: 1rem;
+            }
+
+            .nested-dropdown.active .nested-dropdown-content {
+                display: block;
+            }
+
+            .nested-dropdown > a::after {
+                content: ' ▼';
+                font-size: 0.7rem;
+            }
+
+            .nested-dropdown.active > a::after {
+                content: ' ▲';
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 70px;
+            height: 90vh;
+            min-height: 500px;
+            position: relative;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slide-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(212,175,55,0.3) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide-content {
+            text-align: center;
+            color: white;
+            padding: 2rem;
+            max-width: 900px;
+        }
+
+        .slide-content h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            line-height: 1.2;
+        }
+
+        .slide-content p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.9rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: var(--dark);
+            box-shadow: 0 4px 15px rgba(212,175,55,0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(212,175,55,0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--dark);
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
+        /* Home Section */
+        .intro-section {
+            background: white;
+            padding: 5rem 1.5rem;
+            text-align: center;
+        }
+
+        .intro-section p {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-card h3 {
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .service-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 1.5rem;
+    background: var(--gradient);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-icon::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%);
+    transform: translateX(-100%);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% { transform: translateX(-100%); }
+    50% { transform: translateX(100%); }
+}
+
+.service-icon svg {
+    width: 35px;
+    height: 35px;
+    fill: var(--dark);
+    animation: iconFloat 3s ease-in-out infinite;
+}
+
+@keyframes iconFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.service-card:hover .service-icon {
+    transform: scale(1.1) rotate(5deg);
+    transition: transform 0.3s ease;
+}
+
+
+@media (max-width: 768px) {
+    .services-grid::before,
+    .services-grid::after {
+        display: none;
+    }
+}
+
+        /* About Section */
+        .vision-mission {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .vm-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        .vm-card h3 {
+    background: linear-gradient(135deg, #D4AF37 0%, #8B7355 50%, #D4AF37 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 1.9rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 2px 3px rgba(212, 175, 55, 0.3));
+}
+
+        .partners {
+    margin-top: 3rem;
+    position: relative;
+}
+
+/* Desktop: giữ nguyên grid 4 cột */
+.partners-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+    justify-items: center;
+    align-items: center;
+}
+
+.partner-logo {
+    width: 200px;
+    height: 100px;
+    object-fit: contain;
+    filter: grayscale(0%);
+    transition: filter 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+.partner-logo:hover {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+
+/* Swiper cho mobile */
+.partnersSwiper {
+    display: none; /* Ẩn trên desktop */
+}
+
+/* Mobile: chuyển sang slider */
+@media (max-width: 768px) {
+    .partners-grid {
+        display: none; /* Ẩn grid trên mobile */
+    }
+    
+    .partnersSwiper {
+        display: block; /* Hiện slider trên mobile */
+        padding: 0 40px 40px 40px;
+    }
+    
+    .partnersSwiper .swiper-slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+    }
+    
+    .partnersSwiper .partner-logo {
+        width: 180px;
+        height: 90px;
+    }
+    
+    .partnersSwiper .swiper-pagination {
+        bottom: 0;
+    }
+    
+    .partnersSwiper .swiper-pagination-bullet {
+        background: var(--primary-gold);
+        opacity: 0.5;
+    }
+    
+    .partnersSwiper .swiper-pagination-bullet-active {
+        opacity: 1;
+    }
+}
+
+/* ============================================
+   CAREERS SECTION - NEW COLLAPSIBLE DESIGN
+   ============================================ */
+
+#careers {
+    background: none;
+}
+
+/* Container cho 2 cards */
+.jobs-compact-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Card chính - collapsed state */
+.job-compact-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.job-compact-card:hover {
+    box-shadow: 0 8px 30px rgba(212, 175, 55, 0.25);
+    transform: translateY(-4px);
+}
+
+/* Header - phần luôn hiển thị */
+.job-compact-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--dark);
+    transition: background 0.3s ease;
+    position: relative;
+}
+
+.job-compact-header:hover {
+    background: linear-gradient(135deg, rgba(244, 228, 193, 0.3) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.job-compact-info {
+    flex: 1;
+}
+
+.job-compact-info h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 0.75rem;
+    transition: color 0.3s ease;
+}
+
+.job-compact-header:hover h3 {
+    color: var(--primary-gold);
+}
+
+/* Location với icon gradient */
+.job-compact-location {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--gray);
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.location-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    fill: url(#location-gradient);
+}
+
+/* Mũi tên expand */
+.expand-icon {
+    width: 28px;
+    height: 28px;
+    color: var(--primary-gold);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    flex-shrink: 0;
+}
+
+.job-compact-card.expanded .expand-icon {
+    transform: rotate(180deg);
+}
+
+/* Detail content - ẩn mặc định */
+.job-detail-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.job-compact-card.expanded .job-detail-content {
+    max-height: 3000px;
+}
+
+.job-detail-inner {
+    padding: 0 2rem 2rem;
+    animation: fadeInContent 0.5s ease 0.2s both;
+}
+
+@keyframes fadeInContent {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Job Header Banner */
+.job-header-banner {
+    background: var(--gradient);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.job-header-banner h3 {
+    color: var(--dark);
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.job-subtitle {
+    color: var(--dark);
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0.5rem 0 0 0;
+}
+
+.job-note {
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--dark);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    display: inline-block;
+    margin-top: 1rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Detail Sections */
+.job-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.detail-section {
+    padding: 1.5rem;
+    background: var(--light-gray);
+    border-radius: 12px;
+}
+
+.detail-section h4 {
+    color: var(--primary-gold);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.detail-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.detail-section li {
+    color: var(--gray);
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.6;
+}
+
+.detail-section li::before {
+    content: "▸";
+    color: var(--primary-gold);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.detail-section li strong {
+    color: var(--dark);
+}
+
+.detail-section p {
+    color: var(--gray);
+    line-height: 1.8;
+    margin-left: 1.5rem;
+}
+
+/* Highlight Section */
+.highlight-section {
+    background: linear-gradient(135deg, #fff9e6 0%, #fffbf0 100%);
+    border: 2px solid var(--light-gold);
+}
+
+/* Apply Section */
+.apply-section {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.apply-btn {
+    display: inline-block;
+    background: var(--gradient);
+    color: var(--dark);
+    padding: 1rem 2.5rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    transition: all 0.3s ease;
+}
+
+.apply-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+}
+
+/* Responsive - Mobile */
+@media (max-width: 768px) {
+    .jobs-compact-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .job-compact-header {
+        padding: 1.5rem;
+    }
+    
+    .job-compact-info h3 {
+        font-size: 1.3rem;
+    }
+    
+    .job-compact-location {
+        font-size: 0.9rem;
+    }
+    
+    .job-detail-inner {
+        padding: 0 1.5rem 1.5rem;
+    }
+    
+    .job-header-banner {
+        padding: 1.5rem;
+    }
+    
+    .job-header-banner h3 {
+        font-size: 1.4rem;
+    }
+}
+
+/* SVG Gradient Definition */
+svg defs {
+    display: none;
+}
+
+        /* Activities Section */
+        .activity-category {
+            margin-bottom: 4rem;
+        }
+
+        .activity-category h3 {
+    font-size: 1.9rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #D4AF37 0%, #F4E4C1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+    filter: drop-shadow(0 2px 3px rgba(212, 175, 55, 0.3));
+}
+
+/* Play Hard Grid - 4 Cards Layout */
+.play-hard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.play-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.play-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(212,175,55,0.35);
+}
+
+/* Slider chứa ảnh */
+.play-card-slider {
+    position: relative;
+    height: 350px;
+    overflow: hidden;
+}
+
+.play-card-slider .swiper {
+    height: 100%;
+}
+
+.play-card-slider .swiper-slide {
+    cursor: pointer;
+    position: relative;
+}
+
+.play-card-slider .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Gradient overlay với text */
+.play-card-title-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2.5rem 2rem 2rem 2rem;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.85) 0%,
+        rgba(0, 0, 0, 0.65) 40%,
+        rgba(0, 0, 0, 0.3) 70%,
+        transparent 100%
+    );
+    z-index: 2;
+    pointer-events: none;
+}
+
+.play-card-title {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    letter-spacing: 0.3px;
+}
+
+/* Hover effect trên ảnh */
+.play-card:hover .swiper-slide img {
+    transform: scale(1.08);
+}
+
+/* Navigation buttons - tinh tế hơn */
+.play-card-slider .swiper-button-next,
+.play-card-slider .swiper-button-prev {
+    width: 42px;
+    height: 42px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 50%;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+
+.play-card:hover .swiper-button-next,
+.play-card:hover .swiper-button-prev {
+    opacity: 1;
+}
+
+.play-card-slider .swiper-button-next:hover,
+.play-card-slider .swiper-button-prev:hover {
+    background: var(--primary-gold);
+    transform: scale(1.1);
+}
+
+.play-card-slider .swiper-button-next::after,
+.play-card-slider .swiper-button-prev::after {
+    font-size: 18px;
+    color: var(--dark);
+    font-weight: bold;
+}
+
+/* Pagination */
+.play-card-slider .swiper-pagination {
+    bottom: 15px;
+    z-index: 3;
+}
+
+.play-card-slider .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    background: white;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+}
+
+.play-card-slider .swiper-pagination-bullet-active {
+    opacity: 1;
+    background: var(--primary-gold);
+    width: 24px;
+    border-radius: 4px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .play-hard-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .play-card-slider {
+        height: 280px;
+    }
+    
+    .play-card-title-overlay {
+        padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+    }
+    
+    .play-card-title {
+        font-size: 1.3rem;
+    }
+    
+    .play-card-slider .swiper-button-next,
+    .play-card-slider .swiper-button-prev {
+        opacity: 1; /* Hiện luôn trên mobile */
+        width: 36px;
+        height: 36px;
+    }
+}
+
+/* Disable autoplay khi không hover */
+.play-card-slider .swiper.swiper-paused {
+    /* Swiper tự handle autoplay pause */
+}
+
+
+/* Activity Category Cards - New Design */
+.activity-preview-grid {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.activity-mini-slider {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.activity-slides-wrapper {
+    display: flex;
+    transition: transform 0.4s ease;
+}
+
+.activity-mini-slide {
+    min-width: 33.333%;
+    padding: 0 0.25rem;
+}
+
+.activity-mini-slide img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.activity-mini-slide:hover img {
+    transform: scale(1.05);
+}
+
+.activity-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(135deg, rgba(212,175,55,0.95), rgba(244,228,193,0.95));
+    border: 2px solid rgba(255,255,255,0.5);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: all 0.3s ease;
+    color: var(--dark);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.activity-nav-btn:hover {
+    transform: translateY(-50%) scale(1.15);
+    box-shadow: 0 6px 20px rgba(212,175,55,0.6);
+}
+
+.activity-nav-prev {
+    left: 10px;
+}
+
+.activity-nav-next {
+    right: 10px;
+}
+
+.activity-slide-counter {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background: linear-gradient(135deg, rgba(212,175,55,0.9), rgba(244,228,193,0.9));
+    color: var(--dark);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+}
+
+@media (max-width: 768px) {
+    .activity-mini-slide {
+        min-width: 100%;
+    }
+}
+
+.activity-preview-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    aspect-ratio: 4/3;
+}
+
+.activity-preview-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(212,175,55,0.3);
+}
+
+.activity-preview-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.activity-preview-card:hover img {
+    transform: scale(1.1);
+}
+
+.activity-preview-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+    padding: 1.5rem;
+    color: white;
+}
+
+.activity-preview-overlay h4 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.activity-preview-overlay p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .photo-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .photo-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Locations Section */
+        .location-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin-bottom: 3rem;
+        }
+
+        .location-card h3 {
+            color: var(--primary-gold);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .location-photos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .location-photos img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .location-photos img:hover {
+            transform: scale(1.05);
+        }
+
+        .map-container {
+            width: 100%;
+            height: 350px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Contact Section */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-card h3 {
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+        }
+
+        .contact-card a {
+            color: var(--dark);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+            font-weight: 600;
+        }
+
+        .contact-card a:hover {
+            color: var(--primary-gold);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 1.5rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p {
+            margin-bottom: 0.5rem;
+            line-height: 1.8;
+        }
+
+        .footer-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 0%;
+            margin-bottom: 1rem;
+        }
+
+        .certification-img {
+            width: 41%;
+            max-width: 400px;
+            height: auto;
+            margin-top: 0rem;
+            border-radius: 4px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: var(--gray);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .slide-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .slide-content p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+
+            .photo-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 1rem;
+            }
+
+            .map-container {
+                height: 250px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading Animation */
+        .loading {
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        /* Scroll to Top Button */
+.scroll-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--gradient);
+    border: none;
+    color: var(--dark);
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+    box-shadow: 0 4px 15px rgba(212,175,55,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scroll-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-to-top:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(212,175,55,0.6);
+}
+
+.scroll-to-top:active {
+    transform: translateY(-2px);
+}
+
+/* WhatsApp Floating Button */
+.whatsapp-float {
+    position: fixed;
+    bottom: 6rem; /* Phía trên nút scroll to top */
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    border: none;
+    cursor: pointer;
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.3s ease;
+    z-index: 999;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    animation: whatsappPulse 2s infinite;
+}
+
+@keyframes whatsappPulse {
+    0%, 100% {
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 6px 30px rgba(37, 211, 102, 0.8);
+        transform: scale(1.05);
+    }
+}
+
+.whatsapp-float:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.8);
+}
+
+.whatsapp-float:active {
+    transform: translateY(-2px) scale(1.05);
+}
+
+.whatsapp-float svg {
+    width: 35px;
+    height: 35px;
+    fill: white;
+}
+
+@media (max-width: 768px) {
+    .whatsapp-float {
+        width: 55px;
+        height: 55px;
+        bottom: 5.5rem;
+        right: 1.5rem;
+    }
+    
+    .whatsapp-float svg {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* Image Popup Gallery - PROFESSIONAL DESIGN */
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.92);
+    backdrop-filter: blur(10px);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    animation: fadeInOverlay 0.3s ease;
+}
+
+@keyframes fadeInOverlay {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.popup-overlay.active {
+    display: flex;
+}
+
+.popup-content {
+    position: relative;
+    max-width: 95%;
+    max-height: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: popupZoomIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popupZoomIn {
+    from {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.popup-image {
+    max-width: 100%;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+    transition: transform 0.3s ease;
+}
+
+.popup-close {
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    background: linear-gradient(135deg, #D4AF37 0%, #F4E4C1 100%);
+    color: var(--dark);
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.8rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(212,175,55,0.5);
+}
+
+.popup-close:hover {
+    transform: rotate(90deg) scale(1.15);
+    box-shadow: 0 6px 25px rgba(212,175,55,0.7);
+}
+
+.popup-nav {
+    position: fixed; /* Thay đổi từ absolute sang fixed */
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.95), rgba(244, 228, 193, 0.95));
+    color: var(--dark);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 2rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    backdrop-filter: blur(5px);
+    z-index: 10000; /* Thêm z-index cao */
+}
+
+.popup-nav:hover {
+    transform: translateY(-50%) scale(1.15);
+    box-shadow: 0 8px 30px rgba(212,175,55,0.6);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.popup-nav:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.popup-prev {
+    left: 20px; /* Cố định ở cạnh trái màn hình */
+}
+
+.popup-next {
+    right: 20px; /* Cố định ở cạnh phải màn hình */
+}
+
+.popup-counter {
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, rgba(212,175,55,0.9), rgba(244,228,193,0.9));
+    color: var(--dark);
+    padding: 0.7rem 1.8rem;
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    letter-spacing: 0.5px;
+}
+
+.popup-category-title {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    background: rgba(0,0,0,0.6);
+    padding: 0.5rem 1.5rem;
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 768px) {
+    .popup-nav {
+        width: 45px;
+        height: 45px;
+        font-size: 1.5rem;
+    }
+    
+    .popup-prev {
+        left: 10px; /* Gần hơn trên mobile */
+    }
+    
+    .popup-next {
+        right: 10px; /* Gần hơn trên mobile */
+    }
+    
+    .popup-close {
+        top: -40px;
+        right: 0;
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
+    
+    .popup-counter {
+        bottom: -45px;
+        font-size: 0.95rem;
+        padding: 0.6rem 1.5rem;
+    }
+    
+    .popup-category-title {
+        top: -40px;
+        font-size: 1rem;
+        padding: 0.4rem 1rem;
+    }
+    
+    .popup-image {
+        max-height: 70vh;
+    }
+}
+
+/* Activity Slider Wrapper */
+.activity-slider {
+    position: relative;
+    overflow: hidden;
+}
+
+.activity-slider .swiper-button-next,
+.activity-slider .swiper-button-prev {
+    color: var(--primary-gold);
+    background: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: var(--shadow);
+}
+
+.activity-slider .swiper-button-next::after,
+.activity-slider .swiper-button-prev::after {
+    font-size: 1.2rem;
+}
+
+.activity-slider .swiper-pagination-bullet {
+    background: var(--primary-gold);
+}
+
+/* Compact Grid Layout */
+.compact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+}
+
+.compact-grid .photo-item {
+    aspect-ratio: 1;
+    border-radius: 8px;
+}
+
+.compact-grid .photo-item:nth-child(1) {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+}
+
+@media (max-width: 768px) {
+    .popup-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .popup-prev {
+        left: 10px;
+    }
+    
+    .popup-next {
+        right: 10px;
+    }
+    
+    .compact-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .compact-grid .photo-item:nth-child(1) {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .scroll-to-top {
+        width: 45px;
+        height: 45px;
+        bottom: 1.5rem;
+        right: 1.5rem;
+    }
+}
+
+/* Subsection Styling */
+.subsection-header {
+    text-align: center;
+    margin: 4rem 0 3rem;
+    position: relative;
+}
+
+.subsection-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-gold);
+    margin-bottom: 0.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.subsection-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--gradient);
+    border-radius: 2px;
+}
+
+.subsection-description {
+    color: var(--gray);
+    font-size: 1.1rem;
+    margin-top: 1rem;
+}
+
+/* Environment Cards Grid */
+.environment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.environment-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.environment-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(212,175,55,0.3);
+}
+
+.env-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 1.5rem;
+    background: var(--gradient);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.env-icon svg {
+    width: 35px;
+    height: 35px;
+    stroke: var(--dark);
+}
+
+.environment-card h4 {
+    font-size: 1.3rem;
+    color: var(--dark);
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+}
+
+.environment-card p {
+    color: var(--gray);
+    line-height: 1.6;
+}
+
+/* Section Divider */
+.section-divider {
+    height: 2px;
+    background: linear-gradient(to right, transparent 0%, var(--primary-gold) 50%, transparent 100%);
+    margin: 4rem auto;
+    max-width: 60%;
+}
+    </style>
+</head>
+<body>
+    <div class="animated-bg"></div>
+    <svg style="position: absolute; width: 0; height: 0; overflow: hidden;">
+        <defs>
+            <linearGradient id="location-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#D4AF37;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#F4E4C1;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+    </svg>
+    <button id="scrollToTop" class="scroll-to-top" title="Lên đầu trang">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 19V5M5 12l7-7 7 7"/>
+        </svg>
+    </button>
+
+    <!-- WhatsApp Floating Button -->
+<a href="https://wa.me/84888889455" target="_blank" class="whatsapp-float" title="Chat với chúng tôi qua WhatsApp">
+    <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+        <path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+    </svg>
+</a>
+
+    <div class="popup-overlay" id="imagePopup">
+        <div class="popup-content">
+            <button class="popup-close" onclick="closePopup()">×</button>
+            <button class="popup-nav popup-prev" onclick="navigatePopup(-1)">‹</button>
+            <img src="" alt="Preview" class="popup-image" id="popupImage">
+            <button class="popup-nav popup-next" onclick="navigatePopup(1)">›</button>
+            <div class="popup-counter" id="popupCounter"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo-container" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                <img src="logo.png" alt="Tâm An Phát Logo" class="logo">
+            </div>
+            
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home">Trang chủ</a></li>
+                <li class="dropdown">
+                    <a href="#about">Chúng tôi</a>
+                    <div class="dropdown-content">
+                        <a href="#vision">Tầm nhìn</a>
+                        <a href="#mission">Sứ mệnh</a>
+                        <a href="#services">Sản phẩm & Dịch vụ</a>
+                    </div>
+                </li>
+                <li><a href="#careers">Tuyển dụng</a></li>
+                <li class="dropdown">
+                    <a href="#activities">Các hoạt động</a>
+                    <div class="dropdown-content">
+                        <a href="#work-hard">Làm hết sức</a>
+                        <div class="nested-dropdown">
+                            <a href="#play-hard">Chơi hết mình</a>
+                            <div class="nested-dropdown-content">
+                                <a href="#company-trip">Company Trip</a>
+                                <a href="#holidays">Ngày lễ là ngày ăn chơi</a>
+                                <a href="#games">Chơi game có "Lộc"</a>
+                                <a href="#sports">Thể thao lành mạnh</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="#locations">Cơ sở</a></li>
+                <li><a href="#contact">Liên hệ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="swiper heroSwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920" alt="Modern Office" class="slide-image">
+                    <div class="slide-overlay">
+                        <div class="slide-content">
+                            <h1>TÂM AN PHÁT - KẾT NỐI GIÁ TRỊ, KIẾN TẠO TƯƠNG LAI</h1>
+                            <p>Đồng hành cùng cộng đồng người Việt tại Hoa Kỳ trong hành trình ổn định cuộc sống, bảo vệ tài chính và phát triển bền vững.</p>
+                            <div class="cta-buttons">
+                                <a href="#about" class="btn btn-primary">Tìm hiểu về chúng tôi</a>
+                                <a href="#careers" class="btn btn-secondary">Tuyển dụng Telemarketing</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1920" alt="Team Work" class="slide-image">
+                    <div class="slide-overlay">
+                        <div class="slide-content">
+                            <h1>TRUSTED BRIDGE FOR VIETNAMESE COMMUNITIES</h1>
+                            <p>Connecting you with trusted insurance solutions and financial security in the United States.</p>
+                            <div class="cta-buttons">
+                                <a href="#about" class="btn btn-primary">Learn More</a>
+                                <a href="#contact" class="btn btn-secondary">Contact Us</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1920" alt="Success" class="slide-image">
+                    <div class="slide-overlay">
+                        <div class="slide-content">
+                            <h1>CƠ HỘI NGHỀ NGHIỆP ĐANG CHỜ BẠN</h1>
+                            <p>Tham gia đội ngũ năng động của chúng tôi và xây dựng sự nghiệp vững chắc.</p>
+                            <div class="cta-buttons">
+                                <a href="#careers" class="btn btn-primary">Xem vị trí tuyển dụng</a>
+                                <a href="#activities" class="btn btn-secondary">Văn hóa công ty</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="intro-section loading">
+        <h2 class="section-title">CÔNG TY TNHH TƯ VẤN THƯƠNG MẠI T.A.P</h2>
+        <p>Tâm An Phát là công ty tư vấn thương mại chuyên cung cấp giải pháp kết nối khách hàng người Việt tại Mỹ với các sản phẩm bảo hiểm uy tín, minh bạch và phù hợp nhu cầu thực tế.</p>
+        <p>Chúng tôi không chỉ là cầu nối dịch vụ, mà còn là điểm tựa tinh thần và thông tin đáng tin cậy cho cộng đồng người Việt nơi xa xứ.</p>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 12H18L15 21L9 3L6 12H2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" fill="none"/>
+                    </svg>
+                </div>
+                <h3>Bảo hiểm sức khỏe</h3>
+                <p>Tư vấn và kết nối với các chương trình bảo hiểm sức khỏe phù hợp nhất cho bạn và gia đình.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M9 22V12H15V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h3>Bảo hiểm nhà ở & xe hơi</h3>
+                <p>Bảo vệ tài sản của bạn với các gói bảo hiểm toàn diện và chi phí hợp lý.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2V22M17 5H9.5C8.57174 5 7.6815 5.36875 7.02513 6.02513C6.36875 6.6815 6 7.57174 6 8.5C6 9.42826 6.36875 10.3185 7.02513 10.9749C7.6815 11.6313 8.57174 12 9.5 12H14.5C15.4283 12 16.3185 12.3687 16.9749 13.0251C17.6313 13.6815 18 14.5717 18 15.5C18 16.4283 17.6313 17.3185 16.9749 17.9749C16.3185 18.6313 15.4283 19 14.5 19H6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h3>Giải pháp hưu trí</h3>
+                <p>Lập kế hoạch tài chính cá nhân và hưu trí để an tâm cho tương lai.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M9 11C11.2091 11 13 9.20914 13 7C13 4.79086 11.2091 3 9 3C6.79086 3 5 4.79086 5 7C5 9.20914 6.79086 11 9 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M23 21V19C22.9993 18.1137 22.7044 17.2528 22.1614 16.5523C21.6184 15.8519 20.8581 15.3516 20 15.13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M16 3.13C16.8604 3.35031 17.623 3.85071 18.1676 4.55232C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89318 18.7122 8.75608 18.1676 9.45769C17.623 10.1593 16.8604 10.6597 16 10.88" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h3>Hỗ trợ khách hàng</h3>
+                <p>Đội ngũ chuyên nghiệp luôn sẵn sàng hỗ trợ giải quyết mọi vấn đề phát sinh.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="loading">
+        <h2 class="section-title">VỀ CHÚNG TÔI</h2>
+        
+        <div class="vision-mission">
+            <div class="vm-card" id="vision">
+                <h3>TẦM NHÌN</h3>
+                <p>Chúng tôi hướng đến việc trở thành đơn vị tư vấn và kết nối dịch vụ hàng đầu cho cộng đồng người Việt tại Hoa Kỳ - nơi mỗi cá nhân đều có cơ hội ổn định, phát triển và an tâm về tương lai.</p>
+            </div>
+            <div class="vm-card" id="mission">
+                <h3>SỨ MỆNH</h3>
+                <p>Bằng sự lắng nghe tận tâm và hành động không ngừng, Tâm An Phát cam kết mang đến những giá trị thiết thực, minh bạch và bền vững cho cuộc sống của người Việt tại Mỹ.</p>
+            </div>
+        </div>
+
+        <div id="services" class="vm-card">
+            <h3>SẢN PHẨM & DỊCH VỤ</h3>
+            <ul style="margin-left: 1.5rem; color: var(--gray);">
+                <li>Tìm kiếm và kết nối khách hàng với các chương trình bảo hiểm uy tín tại Mỹ</li>
+                <li>Hỗ trợ khách hàng lựa chọn kế hoạch phù hợp với nhu cầu và ngân sách</li>
+                <li>Tiếp nhận, xử lý và hỗ trợ các vấn đề phát sinh liên quan đến dịch vụ</li>
+            </ul>
+        </div>
+
+        <h3 style="text-align: center; margin-top: 3rem; color: var(--primary-gold); font-size: 1.8rem; font-weight: 700;">ĐỐI TÁC LIÊN KẾT</h3>
+
+<div class="partners">
+    <!-- Grid cho Desktop -->
+    <div class="partners-grid">
+        <a href="https://www.westernsouthern.com/columbuslife" target="_blank">
+            <img src="colum.png" alt="Columbus Life" class="partner-logo">
+        </a>
+        <a href="https://vietcareservices.com/" target="_blank">
+            <img src="vietca.png" alt="VietCare Services" class="partner-logo">
+        </a>
+        <a href="https://www.westernsouthern.com/lafayette" target="_blank">
+            <img src="lafa.png" alt="lafa" class="partner-logo">
+        </a>
+        <a href="https://www.healthcare.gov/" target="_blank">
+            <img src="heath.go.png" alt="heath.go" class="partner-logo">
+        </a>
+    </div>
+
+    <!-- Swiper cho Mobile -->
+    <div class="swiper partnersSwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <a href="https://www.westernsouthern.com/columbuslife" target="_blank">
+                    <img src="colum.png" alt="Columbus Life" class="partner-logo">
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="https://vietcareservices.com/" target="_blank">
+                    <img src="vietca.png" alt="VietCare Services" class="partner-logo">
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="https://www.westernsouthern.com/lafayette" target="_blank">
+                    <img src="lafa.png" alt="lafa" class="partner-logo">
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="https://www.healthcare.gov/" target="_blank">
+                    <img src="heath.go.png" alt="heath.go" class="partner-logo">
+                </a>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
+    </section>
+
+    <!-- Careers Section - New Collapsible Design -->
+<section id="careers" class="loading">
+    <h2 class="section-title">TUYỂN DỤNG</h2>
+    
+    <div class="jobs-compact-container">
+        <!-- Card 1: Telemarketing -->
+        <div class="job-compact-card" id="telemarketing-card">
+            <a href="#telemarketing-detail" class="job-compact-header" onclick="toggleJobDetail('telemarketing')">
+                <div class="job-compact-info">
+                    <h3>Telemarketing Ca Đêm</h3>
+                    <p class="job-compact-location">
+                        <svg class="location-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path fill="url(#location-gradient)" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+</svg>
+                        163J Bùi Thị Xuân, Phường 1, Bảo Lộc, Lâm Đồng
+                    </p>
+                </div>
+                <svg class="expand-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+            
+            <div class="job-detail-content" id="telemarketing-detail">
+                <div class="job-detail-inner">
+                    <div class="job-header-banner">
+
+                        <p class="job-subtitle">Thu Nhập 15-30 Triệu/Tháng | Làm 5 Ngày/Tuần</p>
+                    </div>
+                    
+                    <div class="job-details">
+                        <div class="detail-section">
+                            <h4>Mô Tả Công Việc</h4>
+                            <ul>
+                                <li><strong>Tiếp nhận data:</strong> Thực hiện cuộc gọi giới thiệu sản phẩm bảo hiểm nhà, xe cho người Việt tại Mỹ</li>
+                                <li><strong>Tư vấn sơ bộ:</strong> Lắng nghe và ghi nhận nhu cầu của khách hàng</li>
+                                <li><strong>Chuyển data:</strong> Chuyển thông tin khách hàng tiềm năng cho bộ phận kinh doanh</li>
+                                <li><em>Không yêu cầu chốt sale - Chỉ chuyển data</em></li>
+                            </ul>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4>Yêu Cầu</h4>
+                            <ul>
+                                <li>Giọng nói rõ ràng, dễ nghe; năng lượng tích cực</li>
+                                <li>Kỹ năng giao tiếp qua điện thoại tốt, thái độ lịch sự và thân thiện</li>
+                                <li>Sử dụng thành thạo máy tính và công cụ văn phòng cơ bản</li>
+                                <li>Chăm chỉ, có trách nhiệm, mong muốn gắn bó lâu dài</li>
+                                <li><strong>Không yêu cầu kinh nghiệm</strong> - Công ty đào tạo toàn bộ</li>
+                            </ul>
+                        </div>
+
+                        <div class="detail-section highlight-section">
+                            <h4>Thu Nhập & Quyền Lợi</h4>
+                            <ul>
+                                <li><strong>Lương cứng:</strong> 12 triệu/tháng (thử việc 11 triệu)</li>
+                                <li><strong>Thu nhập bình quân:</strong> 15-30 triệu/tháng</li>
+                                <li><strong>Thưởng:</strong> Bonus theo ngày/tháng không giới hạn + Lương tháng 13</li>
+                                <li>Đạt target → Chỉ làm 4 ngày/tuần thay vì 5 ngày</li>
+                                <li>BHXH đầy đủ theo quy định pháp luật</li>
+                                <li>Đào tạo bài bản với kịch bản rõ ràng, hỗ trợ từ A-Z</li>
+                                <li>Trang bị đầy đủ máy tính và công cụ làm việc</li>
+                            </ul>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4>Thời Gian Làm Việc</h4>
+                            <ul>
+                                <li><strong>Ca đêm:</strong> 22:00 - 07:00 (nghỉ giữa ca: 02:00 - 04:00)</li>
+                                <li><strong>Lịch làm việc:</strong> Chủ Nhật - Thứ 5 | Nghỉ Thứ 6 - Thứ 7</li>
+                                <li>Giai đoạn đầu hỗ trợ làm 4 tiếng/ngày để thích nghi</li>
+                            </ul>
+                        </div>
+
+                        <div class="apply-section">
+                            <a href="mailto:tap.company.hr@gmail.com?subject=Ứng tuyển vị trí Telemarketing Ca Đêm" class="apply-btn">
+                                Nộp CV
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2: Telesales -->
+        <div class="job-compact-card" id="telesales-card">
+            <a href="#telesales-detail" class="job-compact-header" onclick="toggleJobDetail('telesales')">
+                <div class="job-compact-info">
+                    <h3>Telesales Ca Đêm</h3>
+                    <p class="job-compact-location">
+                        <svg class="location-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path fill="url(#location-gradient)" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+</svg>
+                        An Gia Riverside, 25 Lê Thị Chợ, P.Phú Thuận, Q.7, TP.HCM
+                    </p>
+                </div>
+                <svg class="expand-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+            
+            <div class="job-detail-content" id="telesales-detail">
+                <div class="job-detail-inner">
+                    <div class="job-header-banner">
+                        <p class="job-subtitle">Lương Cứng 10-15 Triệu + Hoa Hồng Cao | Thu Nhập 35-60 Triệu</p>
+                        <div class="job-note">Nhận việc sau Tết</div>
+                    </div>
+                    
+                    <div class="job-details">
+                        <div class="detail-section">
+                            <h4>Mô Tả Công Việc</h4>
+                            <ul>
+                                <li><strong>Nhận cuộc gọi từ Telemarketing:</strong> Tiếp nhận khách hàng được chuyển qua, tư vấn chuyên sâu và chốt đơn hàng</li>
+                                <li><strong>Gọi điện tư vấn:</strong> Gọi theo data có sẵn, tìm kiếm khách hàng có nhu cầu về các dịch vụ hỗ trợ cho người Việt tại Mỹ</li>
+                                <li><strong>Chăm sóc khách hàng:</strong> Hỗ trợ khách hàng trong quá trình sử dụng dịch vụ của công ty</li>
+                            </ul>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4>Yêu Cầu</h4>
+                            <ul>
+                                <li>Giọng nói hay, thiện cảm, tích cực và đầy năng lượng</li>
+                                <li>Yêu thích trò chuyện và khám phá nhu cầu khách hàng</li>
+                                <li>Ưu tiên có kinh nghiệm: Tư vấn, CSKH, Telesales, Bán hàng (hoặc chưa có kinh nghiệm nhưng tự tin giao tiếp)</li>
+                                <li>Không yêu cầu ngoại ngữ</li>
+                                <li>Chăm chỉ, nhiệt tình, mong muốn gắn bó lâu dài</li>
+                                <li>Giao tiếp tốt, nhạy bén, chủ động xử lý công việc, chịu được áp lực</li>
+                            </ul>
+                        </div>
+
+                        <div class="detail-section highlight-section">
+                            <h4>Thu Nhập & Quyền Lợi</h4>
+                            <ul>
+                                <li><strong>Lương cứng:</strong> Thỏa thuận theo kinh nghiệm (tối thiểu 10 triệu)</li>
+                                <li><strong>Hoa hồng:</strong> Cao + Thưởng không giới hạn</li>
+                                <li><strong>Thu nhập bình quân:</strong> 35-60 triệu/tháng</li>
+                                <li>Đầy đủ chế độ BHXH và các phúc lợi theo quy định pháp luật</li>
+                                <li>Được đào tạo bài bản, chuyên nghiệp về quy trình, phương pháp, kỹ năng và bí kíp thành công</li>
+                                <li>Được cấp máy tính và trang thiết bị đầy đủ</li>
+                                <li>Làm việc tại tòa nhà văn phòng hiện đại, không gian thoáng mát</li>
+                            </ul>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4>Thời Gian Làm Việc</h4>
+                            <ul>
+                                <li><strong>Ca làm việc:</strong> 22:00 - 08:00 (Chủ nhật đến Thứ 5)</li>
+                                <li><strong>Nghỉ hàng tuần:</strong> Thứ 6 & Thứ 7</li>
+                                <li><strong>Nghỉ giữa giờ:</strong> 02:00 - 04:00</li>
+                            </ul>
+                        </div>
+
+                        <div class="apply-section">
+                            <a href="mailto:tap.company.hr@gmail.com?subject=Ứng tuyển vị trí Telesales Ca Đêm" class="apply-btn">
+                                Nộp CV
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Activities Section -->
+    <section id="activities" class="loading">
+        <h2 class="section-title">CÁC HOẠT ĐỘNG</h2>
+        
+        <!-- TÌM VÀ THAY THẾ TOÀN BỘ SECTION NÀY -->
+<div class="activity-category" id="work-hard">
+    <h3>Làm hết sức</h3>
+    <p style="color: var(--gray); margin-bottom: 1.5rem;">Không gian thể hiện văn hóa làm việc chuyên nghiệp, năng động</p>
+    
+    <div class="activity-slider">
+        <div class="swiper workSwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="photo-item" onclick="openPopup('work', 0)">
+                        <img src="1.png" alt="Work 1" loading="lazy">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="photo-item" onclick="openPopup('work', 1)">
+                        <img src="2.png" alt="Work 2" loading="lazy">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="photo-item" onclick="openPopup('work', 2)">
+                        <img src="3.png" alt="Work 3" loading="lazy">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="photo-item" onclick="openPopup('work', 3)">
+                        <img src="4.png" alt="Work 4" loading="lazy">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="photo-item" onclick="openPopup('work', 4)">
+                        <img src="5.png" alt="Work 5" loading="lazy">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="photo-item" onclick="openPopup('work', 5)">
+                        <img src="6.png" alt="Work 6" loading="lazy">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="photo-item" onclick="openPopup('work', 6)">
+                        <img src="7.png" alt="Work 7" loading="lazy">
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </div>
+</div>
+
+        </div>
+
+<div class="activity-category" id="play-hard">
+    <h3>Chơi hết mình</h3>
+    <p style="color: var(--gray); margin-bottom: 2rem;">Văn hóa làm việc cân bằng với giải trí và thể thao</p>
+    
+    <div class="play-hard-grid">
+        <!-- Card 1: Company Trip -->
+        <div class="play-card">
+            <div class="play-card-slider">
+                <div class="swiper tripCardSwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide" onclick="openPopup('trip', 0)">
+                            <img src="8.png" alt="Trip 1" loading="lazy">
+                        </div>
+                        <div class="swiper-slide" onclick="openPopup('trip', 1)">
+                            <img src="9.png" alt="Trip 2" loading="lazy">
+                        </div>
+                        <div class="swiper-slide" onclick="openPopup('trip', 2)">
+                            <img src="10.png" alt="Trip 3" loading="lazy">
+                        </div>
+                        <div class="swiper-slide" onclick="openPopup('trip', 3)">
+                            <img src="11.png" alt="Trip 4" loading="lazy">
+                        </div>
+                        <div class="swiper-slide" onclick="openPopup('trip', 4)">
+                            <img src="12.png" alt="Trip 5" loading="lazy">
+                        </div>
+                        <div class="swiper-slide" onclick="openPopup('trip', 5)">
+                            <img src="13.png" alt="Trip 6" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                    <!-- Gradient overlay với text -->
+                    <div class="play-card-title-overlay">
+                        <h4 class="play-card-title">Company Trip</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2: Holidays -->
+        <div class="play-card">
+            <div class="play-card-slider">
+                <div class="swiper holidaysCardSwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide" onclick="openPopup('holidays', 0)">
+                            <img src="14.png" alt="Holiday 1" loading="lazy">
+                        </div>
+                        <div class="swiper-slide" onclick="openPopup('holidays', 1)">
+                            <img src="15.png" alt="Holiday 2" loading="lazy">
+                        </div>
+                        <div class="swiper-slide" onclick="openPopup('holidays', 2)">
+                            <img src="16.png" alt="Holiday 3" loading="lazy">
+                        </div>
+                        <div class="swiper-slide" onclick="openPopup('holidays', 3)">
+                            <img src="17.png" alt="Holiday 4" loading="lazy">
+                        </div>
+                        <div class="swiper-slide" onclick="openPopup('holidays', 4)">
+                            <img src="18.png" alt="Holiday 5" loading="lazy">
+                        </div>
+                        <div class="swiper-slide" onclick="openPopup('holidays', 5)">
+                            <img src="19.png" alt="Holiday 6" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                    <!-- Gradient overlay với text -->
+                    <div class="play-card-title-overlay">
+                        <h4 class="play-card-title">Ngày lễ là ngày ăn chơi</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3: Games -->
+        <div class="play-card">
+            <div class="play-card-slider">
+                <div class="swiper gamesCardSwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide" onclick="openPopup('games', 0)">
+                            <img src="24.png" alt="Game 1" loading="lazy">
+                        </div>
+                        <div class="swiper-slide" onclick="openPopup('games', 1)">
+                            <img src="25.png" alt="Game 2" loading="lazy">
+                        </div>
+                        <div class="swiper-slide" onclick="openPopup('games', 2)">
+                            <img src="26.png" alt="Game 3" loading="lazy">
+                        </div>
+                        <div class="swiper-slide" onclick="openPopup('games', 3)">
+                            <img src="27.png" alt="Game 4" loading="lazy">
+                        </div>
+                        <div class="swiper-slide" onclick="openPopup('games', 4)">
+                            <img src="28.png" alt="Game 5" loading="lazy">
+                        </div>
+                        <div class="swiper-slide" onclick="openPopup('games', 5)">
+                            <img src="29.png" alt="Game 6" loading="lazy">
+                        </div>
+                        <div class="swiper-slide" onclick="openPopup('games', 6)">
+                            <img src="30.png" alt="Game 7" loading="lazy">
+                        </div>
+                        <div class="swiper-slide" onclick="openPopup('games', 7)">
+                            <img src="31.png" alt="Game 8" loading="lazy">
+                        </div>
+                        <div class="swiper-slide" onclick="openPopup('games', 8)">
+                            <img src="32.png" alt="Game 9" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                    <!-- Gradient overlay với text -->
+                    <div class="play-card-title-overlay">
+                        <h4 class="play-card-title">Chơi game có "Lộc"</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 4: Sports -->
+        <div class="play-card">
+            <div class="play-card-slider">
+                <div class="swiper sportsCardSwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide" onclick="openPopup('sports', 0)">
+                            <img src="33.png" alt="Sport 1" loading="lazy">
+                        </div>
+                        <div class="swiper-slide" onclick="openPopup('sports', 1)">
+                            <img src="34.png" alt="Sport 2" loading="lazy">
+                        </div>
+                        <div class="swiper-slide" onclick="openPopup('sports', 2)">
+                            <img src="35.png" alt="Sport 3" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                    <!-- Gradient overlay với text -->
+                    <div class="play-card-title-overlay">
+                        <h4 class="play-card-title">Thể thao lành mạnh</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        </div>
+    </section>
+
+    <!-- Locations Section -->
+    <section id="locations" class="loading">
+    <h2 class="section-title">CƠ SỞ</h2>
+    
+    <div class="environment-grid">
+        <div class="environment-card">
+            <div class="env-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <h4>Văn phòng hiện đại</h4>
+            <p>Thoáng mát, thiết kế sang trọng</p>
+        </div>
+        
+        <div class="environment-card">
+            <div class="env-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
+                    <path d="M8 21h8M12 17v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <h4>Trang bị đầy đủ</h4>
+            <p>Máy tính và thiết bị làm việc hiện đại</p>
+        </div>
+        
+        <div class="environment-card">
+            <div class="env-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="currentColor" stroke-width="2"/>
+                    <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+                    <path d="M23 21V19C22.9993 18.1137 22.7044 17.2528 22.1614 16.5523C21.6184 15.8519 20.8581 15.3516 20 15.13M16 3.13C16.8604 3.35031 17.623 3.85071 18.1676 4.55232C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89318 18.7122 8.75608 18.1676 9.45769C17.623 10.1593 16.8604 10.6597 16 10.88" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <h4>Không gian năng động</h4>
+            <p>Môi trường chuyên nghiệp, thân thiện</p>
+        </div>
+    </div>
+
+    <div class="location-card">
+        <h3>Trụ sở chính – TP.HCM</h3>
+        <p style="color: var(--gray); margin-bottom: 2rem;">An Gia Riverside, 25 Lê Thị Chợ, Phường Phú Thuận, Quận 7, TP.HCM</p>
+        
+        <div class="activity-slider">
+            <div class="swiper hcmSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="photo-item" onclick="openPopup('hcm', 0)">
+                            <img src="36.png" alt="Office 1" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="photo-item" onclick="openPopup('hcm', 1)">
+                            <img src="37.png" alt="Office 2" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="photo-item" onclick="openPopup('hcm', 2)">
+                            <img src="38.png" alt="Office 3" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="photo-item" onclick="openPopup('hcm', 3)">
+                            <img src="40.png" alt="Office 4" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="photo-item" onclick="openPopup('hcm', 4)">
+                            <img src="41.png" alt="Office 5" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="photo-item" onclick="openPopup('hcm', 5)">
+                            <img src="39.png" alt="Office 6" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+
+        <div class="map-container" style="margin-top: 2rem;">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3920.26328855272!2d106.73642518398805!3d10.71416423310489!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317525004a8a7b63%3A0x43adcc6569b63a7b!2sAn%20Gia%20Riverside!5e0!3m2!1svi!2s!4v1769366118332!5m2!1svi!2s" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+
+    <div class="location-card">
+        <h3>Chi nhánh Bảo Lộc – Lâm Đồng</h3>
+        <p style="color: var(--gray); margin-bottom: 2rem;">163J Bùi Thị Xuân, Phường 1, TP. Bảo Lộc, Lâm Đồng</p>
+        
+        <div class="activity-slider">
+    <div class="swiper baolocSwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="photo-item" onclick="openPopup('baoloc', 0)">
+                    <img src="https://images.unsplash.com/photo-1604328698692-f76ea9498e76?w=800" alt="Bao Loc 1" loading="lazy">
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="photo-item" onclick="openPopup('baoloc', 1)">
+                    <img src="https://images.unsplash.com/photo-1462826303086-329426d1aef5?w=800" alt="Bao Loc 2" loading="lazy">
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="photo-item" onclick="openPopup('baoloc', 2)">
+                    <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800" alt="Bao Loc 3" loading="lazy">
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="photo-item" onclick="openPopup('baoloc', 3)">
+                    <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800" alt="Bao Loc 4" loading="lazy">
+                </div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+</div>
+
+        <div class="map-container" style="margin-top: 2rem;">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3908.8814707386096!2d107.81483879999999!3d11.560354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3173f703a5d81b41%3A0x7aab77dc463c5600!2zMTYzIELDuWkgVGjhu4sgWHXDom4sIFBoxrDhu51uZyAxLCBCxrDhu59jIEzhu49jLCBMw6JtIMSQ4buTbmcsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1769366248983!5m2!1svi!2s" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+</section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="loading">
+        <h2 class="section-title">LIÊN HỆ</h2>
+        
+        <div class="contact-info">
+            <div class="contact-card">
+                <h3>Email</h3>
+                <a href="mailto:tap.company.hr@gmail.com">tap.company.hr@gmail.com</a>
+            </div>
+            <div class="contact-card">
+                <h3>Hotline</h3>
+                <a href="tel:0888889455">(VN) 0888 889 455</a><br/>
+                <a href="tel:6786664318">(VN) 0967 070 678</a>
+            </div>
+        </div>
+
+        <div class="map-container" style="max-width: 900px; margin: 0 auto;">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3920.26328855272!2d106.73642518398805!3d10.71416423310489!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317525004a8a7b63%3A0x43adcc6569b63a7b!2sAn%20Gia%20Riverside!5e0!3m2!1svi!2s!4v1769366118332!5m2!1svi!2s" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <img src="logonob.png" alt="Logo" class="footer-logo">
+                <h3>TÂM AN PHÁT COMPANY LTD</h3>
+                <p>TAP TRADING CONSULTING COMPANY LIMITED</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Trụ sở Việt Nam</h3>
+                <p>An Gia Riverside, 25 Lê Thị Chợ</p>
+                <p>Phường Phú Thuận, Quận 7, TP. HCM</p>
+                <p>163 Bùi Thị Xuân, Phường 1, Bảo Lộc, Lâm Đồng</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Đối tác tại Georgia, USA</h3>
+                <p><strong>VietCare Services</strong></p>
+                <p>5051 Peachtree Corners Cir Suite 200 Norcross, GA 30092</p>
+                <p style="margin-top: 1rem;"><strong>Columbus Life</strong></p>
+                <p>400 Broadway, Cincinnati, OH 45202-3341</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Chứng nhận</h3>
+                <img src="DTB.png" alt="Bộ Công Thương" class="certification-img">
+                <h3>Mã số thuế</h3>
+                <p>0319084935</p>
+            </div>
+    
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Công ty TNHH Tư vấn Thương mại T.A.P - Tâm An Phát. All rights reserved.</p>
+        </div>
+
+    </footer>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <script>
+        // Initialize Swiper with autoplay every 2 seconds
+        const swiper = new Swiper('.heroSwiper', {
+    loop: true,
+    autoplay: {
+        delay: 2000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,  // THÊM DÒNG NÀY
+    },
+    speed: 800,
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+});
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Mobile Dropdown Accordion
+        const setupMobileMenu = () => {
+            if (window.innerWidth <= 768) {
+                document.querySelectorAll('.dropdown > a').forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        if (window.innerWidth <= 768) {
+                            e.preventDefault();
+                            link.parentElement.classList.toggle('active');
+                        }
+                    });
+                });
+
+                document.querySelectorAll('.nested-dropdown > a').forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        if (window.innerWidth <= 768) {
+                            e.preventDefault();
+                            link.parentElement.classList.toggle('active');
+                        }
+                    });
+                });
+            }
+        };
+
+        setupMobileMenu();
+        window.addEventListener('resize', setupMobileMenu);
+
+        // Close mobile menu when clicking a final link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            if (!link.parentElement.classList.contains('dropdown') && 
+                !link.parentElement.classList.contains('nested-dropdown')) {
+                link.addEventListener('click', () => {
+                    menuToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            }
+        });
+
+        // Close menu when clicking nested links
+        document.querySelectorAll('.nested-dropdown-content a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    menuToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                }
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add loading animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.loading').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Scroll to Top Button - THÊM CODE NÀY
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+        
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Active Menu on Scroll - THÊM CODE NÀY
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
+
+        function activateNavOnScroll() {
+            const scrollY = window.pageYOffset;
+
+            sections.forEach(section => {
+                const sectionHeight = section.offsetHeight;
+                const sectionTop = section.offsetTop - 100;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+            
+            // Activate home when at top
+            if (scrollY < 100) {
+                navLinks.forEach(link => link.classList.remove('active'));
+                document.querySelector('.nav-menu a[href="#home"]')?.classList.add('active');
+            }
+        }
+
+        window.addEventListener('scroll', activateNavOnScroll);
+        activateNavOnScroll(); // Run on page load
+
+        // THAY THẾ IMAGE DATA
+const imageData = {
+    work: ['1.png', '2.png', '3.png', '4.png', '5.png', '6.png', '7.png'],
+    trip: ['8.png', '9.png', '10.png', '11.png', '12.png', '13.png'],
+    holidays: ['14.png', '15.png', '16.png', '17.png', '18.png', '19.png'],
+    games: ['24.png', '25.png', '26.png', '27.png', '28.png', '29.png', '30.png', '31.png', '32.png'],
+    sports: ['33.png', '34.png', '35.png'],
+    hcm: ['36.png', '37.png', '38.png', '40.png', '41.png', '39.png'],
+    baoloc: [
+        'https://images.unsplash.com/photo-1604328698692-f76ea9498e76?w=800',
+    'https://images.unsplash.com/photo-1462826303086-329426d1aef5?w=800',
+    'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800',
+    'https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800'
+    ]
+};
+
+const categoryNames = {
+    work: 'Làm hết sức',
+    trip: 'Company Trip',
+    holidays: 'Ngày lễ là ngày ăn chơi',
+    games: 'Chơi game có "Lộc"',
+    sports: 'Thể thao lành mạnh',
+    hcm: 'Trụ sở chính – TP.HCM',
+    baoloc: 'Chi nhánh Bảo Lộc'
+};
+
+        let currentCategory = '';
+        let currentIndex = 0;
+
+        // THAY THẾ FUNCTION OPENPOPUP
+function openPopup(category, index) {
+    currentCategory = category;
+    currentIndex = index;
+    const popup = document.getElementById('imagePopup');
+    const img = document.getElementById('popupImage');
+    const counter = document.getElementById('popupCounter');
+    
+    // Add category title if not exists
+    let titleEl = document.getElementById('popupCategoryTitle');
+    if (!titleEl) {
+        titleEl = document.createElement('div');
+        titleEl.id = 'popupCategoryTitle';
+        titleEl.className = 'popup-category-title';
+        document.querySelector('.popup-content').appendChild(titleEl);
+    }
+    
+    titleEl.textContent = categoryNames[category] || category;
+    img.src = imageData[category][index];
+    counter.textContent = `${index + 1} / ${imageData[category].length}`;
+    popup.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+        function closePopup() {
+            const popup = document.getElementById('imagePopup');
+            popup.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function navigatePopup(direction) {
+            const images = imageData[currentCategory];
+            currentIndex = (currentIndex + direction + images.length) % images.length;
+            
+            const img = document.getElementById('popupImage');
+            const counter = document.getElementById('popupCounter');
+            
+            img.src = images[currentIndex];
+            counter.textContent = `${currentIndex + 1} / ${images.length}`;
+        }
+
+        // Close popup with ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closePopup();
+            if (e.key === 'ArrowLeft') navigatePopup(-1);
+            if (e.key === 'ArrowRight') navigatePopup(1);
+        });
+
+        // Close popup when clicking overlay
+        document.getElementById('imagePopup').addEventListener('click', (e) => {
+            if (e.target.classList.contains('popup-overlay')) {
+                closePopup();
+            }
+        });
+
+        // Work Activities Slider
+        const workSwiper = new Swiper('.workSwiper', {
+            slidesPerView: 3,
+            spaceBetween: 20,
+            loop: true,
+            autoplay: {
+                delay: 2000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.workSwiper .swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.workSwiper .swiper-button-next',
+                prevEl: '.workSwiper .swiper-button-prev',
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 3,
+                    spaceBetween: 10
+                },
+                768: {
+                    slidesPerView: 4,
+                    spaceBetween: 15
+                },
+                1024: {
+                    slidesPerView: 5,
+                    spaceBetween: 20
+                }
+            }
+        });
+
+        // HCM Office Slider - THÊM CODE NÀY
+        const hcmSwiper = new Swiper('.hcmSwiper', {
+            slidesPerView: 3,
+            spaceBetween: 20,
+            loop: true,
+            autoplay: {
+                delay: 2000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.hcmSwiper .swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.hcmSwiper .swiper-button-next',
+                prevEl: '.hcmSwiper .swiper-button-prev',
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 3,
+                    spaceBetween: 10
+                },
+                768: {
+                    slidesPerView: 4,
+                    spaceBetween: 15
+                },
+                1024: {
+                    slidesPerView: 5,
+                    spaceBetween: 20
+                }
+            }
+        });
+
+        // Bao Loc Office Slider
+const baolocSwiper = new Swiper('.baolocSwiper', {
+    slidesPerView: 3,
+    spaceBetween: 20,
+    loop: true,
+    autoplay: {
+        delay: 2000,
+        disableOnInteraction: false,
+    },
+    pagination: {
+        el: '.baolocSwiper .swiper-pagination',
+        clickable: true,
+    },
+    navigation: {
+        nextEl: '.baolocSwiper .swiper-button-next',
+        prevEl: '.baolocSwiper .swiper-button-prev',
+    },
+    breakpoints: {
+        320: {
+            slidesPerView: 1,
+            spaceBetween: 10
+        },
+        768: {
+            slidesPerView: 2,
+            spaceBetween: 15
+        },
+        1024: {
+            slidesPerView: 3,
+            spaceBetween: 20
+        }
+    }
+});
+// Partners Slider - Chỉ hoạt động trên mobile
+const partnersSwiper = new Swiper('.partnersSwiper', {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    loop: true,
+    autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+    },
+    pagination: {
+        el: '.partnersSwiper .swiper-pagination',
+        clickable: true,
+    },
+});
+
+// Play Hard Card Swipers - Cải tiến với autoplay chỉ khi hover
+const playCardConfigs = [
+    { class: 'tripCardSwiper', delay: 3000 },
+    { class: 'holidaysCardSwiper', delay: 3000 },
+    { class: 'gamesCardSwiper', delay: 3000 },
+    { class: 'sportsCardSwiper', delay: 3000 }
+];
+
+playCardConfigs.forEach(config => {
+    const swiperInstance = new Swiper(`.${config.class}`, {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        loop: true,
+        autoplay: false, // Tắt autoplay mặc định
+        speed: 800,
+        effect: 'fade', // Thêm effect fade cho mượt hơn
+        fadeEffect: {
+            crossFade: true
+        },
+        navigation: {
+            nextEl: `.${config.class} .swiper-button-next`,
+            prevEl: `.${config.class} .swiper-button-prev`,
+        },
+        pagination: {
+            el: `.${config.class} .swiper-pagination`,
+            clickable: true,
+            dynamicBullets: true,
+        },
+    });
+
+    // Lấy container card
+    const cardElement = document.querySelector(`.${config.class}`).closest('.play-card');
+    
+    let autoplayTimeout;
+    
+    // Bật autoplay sau 2 giây khi hover
+    cardElement.addEventListener('mouseenter', () => {
+        autoplayTimeout = setTimeout(() => {
+            swiperInstance.params.autoplay = {
+                delay: config.delay,
+                disableOnInteraction: false,
+            };
+            swiperInstance.autoplay.start();
+        }, 2000);
+    });
+    
+    // Tắt autoplay khi rời chuột
+    cardElement.addEventListener('mouseleave', () => {
+        clearTimeout(autoplayTimeout);
+        swiperInstance.autoplay.stop();
+    });
+});
+
+// Activity Mini Slider with Auto-play on Hover
+const activitySliders = {
+    trip: { current: 0, total: 6, auto: null },
+    holidays: { current: 0, total: 6, auto: null },
+    games: { current: 0, total: 9, auto: null },
+    sports: { current: 0, total: 3, auto: null }
+};
+
+function slideActivity(category, direction) {
+    const slider = activitySliders[category];
+    const wrapper = document.querySelector(`#${category}Slider .activity-slides-wrapper`);
+    const counter = document.getElementById(`${category}Counter`);
+    const isMobile = window.innerWidth <= 768;
+    const slideWidth = isMobile ? 100 : 33.333;
+    
+    slider.current += direction;
+    
+    const maxSlide = isMobile ? slider.total - 1 : Math.max(0, slider.total - 3);
+    if (slider.current < 0) slider.current = maxSlide;
+    if (slider.current > maxSlide) slider.current = 0;
+    
+    wrapper.style.transform = `translateX(-${slider.current * slideWidth}%)`;
+    
+    const start = slider.current + 1;
+    const end = Math.min(start + (isMobile ? 0 : 2), slider.total);
+    counter.textContent = isMobile ? `${start} / ${slider.total}` : `${start}-${end} / ${slider.total}`;
+}
+
+function updateAllCounters() {
+    Object.keys(activitySliders).forEach(category => {
+        const counter = document.getElementById(`${category}Counter`);
+        const slider = activitySliders[category];
+        const isMobile = window.innerWidth <= 768;
+        
+        const start = slider.current + 1;
+        const end = Math.min(start + (isMobile ? 0 : 2), slider.total);
+        counter.textContent = isMobile ? `${start} / ${slider.total}` : `${start}-${end} / ${slider.total}`;
+    });
+}
+
+// Auto-play on hover
+Object.keys(activitySliders).forEach(category => {
+    const sliderEl = document.getElementById(`${category}Slider`);
+    if (sliderEl) {
+        sliderEl.addEventListener('mouseenter', () => {
+            activitySliders[category].auto = setInterval(() => {
+                slideActivity(category, 1);
+            }, 2000);
+        });
+        
+        sliderEl.addEventListener('mouseleave', () => {
+            clearInterval(activitySliders[category].auto);
+        });
+    }
+});
+
+window.addEventListener('resize', updateAllCounters);
+// Jobs Slider - Chỉ hoạt động trên Mobile
+// ============================================
+// CAREERS SECTION - COLLAPSIBLE FUNCTIONALITY
+// ============================================
+
+function toggleJobDetail(jobType) {
+    const card = document.getElementById(`${jobType}-card`);
+    
+    // CHỈ toggle card hiện tại - KHÔNG đóng cards khác
+    card.classList.toggle('expanded');
+    
+    // Scroll to detail section sau khi expand
+    if (card.classList.contains('expanded')) {
+        setTimeout(() => {
+            const detailSection = document.getElementById(`${jobType}-detail`);
+            if (detailSection) {
+                const yOffset = -100;
+                const y = detailSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+            }
+        }, 400);
+    }
+}
+
+// Add SVG gradient definition to document
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // Auto-expand nếu URL có hash
+    const hash = window.location.hash;
+    if (hash === '#telemarketing-detail') {
+        toggleJobDetail('telemarketing');
+    } else if (hash === '#telesales-detail') {
+        toggleJobDetail('telesales');
+    }
+});
+    </script>
+</body>
+</html>
